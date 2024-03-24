@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <HeaderContentWrapper>
         <HeaderTitle>Whatsi</HeaderTitle>
         {/* TODO: pendiente de insertar onChane para renderizar las búsquedas si da tiempo */}
-        <Input iconType="search" variant="large" type="text" />
+        <Input iconType="search" variant="large" type="text" placeholder="Search" />
       </HeaderContentWrapper>
     </HeaderWrapper>
   )
