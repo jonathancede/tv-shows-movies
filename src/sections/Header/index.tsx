@@ -1,3 +1,4 @@
+import Input from "@/components/Input"
 import { HeaderContentWrapper, HeaderTitle, HeaderWrapper } from "./styles"
 
 const Header: React.FC = () => {
@@ -5,8 +6,8 @@ const Header: React.FC = () => {
     <HeaderWrapper>
       <HeaderContentWrapper>
         <HeaderTitle>Whatsi</HeaderTitle>
-        {/* TODO: Crear input de buscador */}
-        <div>Buscador</div>
+        {/* TODO: pendiente de insertar onChane para renderizar las búsquedas si da tiempo */}
+        <Input iconType="search" variant="large" type="text" />
       </HeaderContentWrapper>
     </HeaderWrapper>
   )
