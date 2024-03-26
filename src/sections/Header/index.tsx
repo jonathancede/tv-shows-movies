@@ -1,3 +1,5 @@
+"use client"
+
 import Input from "@/components/Input"
 import { HeaderContentWrapper, HeaderTitle, HeaderWrapper } from "./styles"
 

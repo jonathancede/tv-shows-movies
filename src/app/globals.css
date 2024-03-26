@@ -14,3 +14,7 @@ body {
   background-color: #121217;
   color: #ffffff;
 }
+
+main {
+  width: 100vw;
+}

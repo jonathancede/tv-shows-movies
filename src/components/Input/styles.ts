@@ -17,6 +17,7 @@ export const InputBase = styled.div`
     outline: none;
     border: none;
     font-size: 14px;
+    width: 100%;
   }
 
   img {
@@ -26,8 +27,8 @@ export const InputBase = styled.div`
 `
 
 export const InputLarge = styled(InputBase)`
-  gap: 8px;
-  padding: 8px 16px;
+  gap: 12px;
+  padding: 10px 16px;
 
   input {
     font-size: 16px;
