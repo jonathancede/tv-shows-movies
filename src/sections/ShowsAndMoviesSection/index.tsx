@@ -12,7 +12,7 @@ const SUBSECTIONS_IDS = {
 }
 
 const ShowsAndMoviesSection: React.FC = () => {
-  const [subsectionSelected, setsubsectionSelected] = useState(SUBSECTIONS_IDS.TV_SHOWS)
+  const [subsectionSelected, setsubsectionSelected] = useState<String>(SUBSECTIONS_IDS.TV_SHOWS)
   const placeHolderInput = subsectionSelected === SUBSECTIONS_IDS.TV_SHOWS ? "Search for TV shows" : "Search for movies"
 
   const sections: Array<SubsectionsType> = [
