@@ -1,5 +1,7 @@
+import ShowsAndMoviesSection from "@/sections/ShowsAndMoviesSection"
+
 const Home: React.FC = () => {
-  return <div>Página Home</div>
+  return <ShowsAndMoviesSection />
 }
 
 export default Home
