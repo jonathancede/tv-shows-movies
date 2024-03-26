@@ -11,7 +11,7 @@ class HttpService {
       baseURL: baseUrl ?? "",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${apiKey ?? ""}`,
+        ...(apiKey ? { Authorization: `Bearer ${apiKey}` } : {}),
       },
     })
     this.generalCatch = generalCatch
