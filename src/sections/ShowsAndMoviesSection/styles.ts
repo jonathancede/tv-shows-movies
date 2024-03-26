@@ -7,3 +7,9 @@ export const ShowsAndMoviesSectionWrapper = styled.div`
   flex-direction: column;
   gap: 28px;
 `
+
+export const ListItemsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+`

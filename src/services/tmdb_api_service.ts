@@ -8,6 +8,10 @@ class TMDBApiService extends HttpService {
   async getPopularMovies(language: string, page: string | number): Promise<any> {
     return await this.get(`movie/popular?language=${language}&page=${page}`)
   }
+
+  async getPopularTVShows(language: string, page: string | number): Promise<any> {
+    return await this.get(`tv/popular?language=${language}&page=${page}`)
+  }
 }
 
 const TMDB_URL = process.env.NEXT_PUBLIC_TMDB_URL
