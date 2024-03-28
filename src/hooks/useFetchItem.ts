@@ -4,9 +4,9 @@ import tmdb_api_service from "@/services/tmdb_api_service"
 import { ITEMS_TYPES } from "@/utils/constans"
 import { useEffect, useState } from "react"
 
-const useFetchItem = (type?: string, id?: string | number) => {
+const useFetchItem = (type?: string, id?: string | number): { loading: boolean; data: any; failed: boolean } => {
   const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [failed, setFailed] = useState(false)
 
   const isValidType: boolean = !!type && Object.values(ITEMS_TYPES).includes(type)

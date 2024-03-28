@@ -3,6 +3,7 @@
 import { notFound } from "next/navigation"
 import useFetchItem from "@/hooks/useFetchItem"
 import BackgroundImageSection from "@/sections/BackgroundImageSection"
+import Section from "@/components/Sections"
 
 interface DetailPageProps {
   params: {
@@ -19,16 +20,14 @@ const DetailView: React.FC<DetailPageProps> = ({ params }) => {
     return notFound()
   }
 
-  console.log(loading, data, failed)
-
   if (loading) {
     // TODO: Crear un loader
-    return <div>Cargando...</div>
+    return <Section>Cargando ...</Section>
   }
 
   return (
     <>
-      <BackgroundImageSection />
+      <BackgroundImageSection data={data} />
     </>
   )
 }
