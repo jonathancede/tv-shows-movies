@@ -9,8 +9,16 @@ class TMDBApiService extends HttpService {
     return await this.get(`movie/popular?language=${language}&page=${page}`)
   }
 
+  async getMovieById(id: string | number): Promise<any> {
+    return await this.get(`movie/${id}`)
+  }
+
   async getPopularTVShows(language: string, page: string | number): Promise<any> {
     return await this.get(`tv/popular?language=${language}&page=${page}`)
+  }
+
+  async getTVShowById(id: string | number): Promise<any> {
+    return await this.get(`tv/${id}`)
   }
 }
 
