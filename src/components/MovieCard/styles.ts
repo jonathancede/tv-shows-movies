@@ -2,11 +2,23 @@
 
 import styled from "styled-components"
 
-export const MovieCardWrapper = styled.div`
+export const MovieCardWrapper = styled.div<{ $hasLink: boolean }>`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  cursor: pointer;
+
+  ${({ $hasLink }) =>
+    $hasLink &&
+    `
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      transform:scale(1.15);
+      z-index: 1;
+    }
+  `}
 `
 
 export const MovieCardImageWrapper = styled.div`

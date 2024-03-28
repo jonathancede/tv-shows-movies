@@ -54,6 +54,7 @@ const ShowsAndMoviesSection: React.FC = () => {
                 image_path={backdrop_path}
                 title={name ?? title}
                 vote_average={vote_average}
+                link={`/detail/${id}`}
               />
             ))}
           </ListItemsWrapper>

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import Image from "next/image"
 import useTMDBImages from "@/hooks/useTMDBImages"
 import {
@@ -14,13 +15,15 @@ interface MovieCardProps {
   image_path: string
   title: string
   vote_average: number
+  link?: string
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ image_path, title, vote_average }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ image_path, title, vote_average, link = "" }) => {
   const { full_path } = useTMDBImages(image_path)
+  const hasLink: boolean = link !== ""
 
-  return (
-    <MovieCardWrapper>
+  const MovieCardBody = () => (
+    <MovieCardWrapper $hasLink={hasLink}>
       <MovieCardImageWrapper>
         <Image fill src={full_path} alt={title} sizes="100%" />
       </MovieCardImageWrapper>
@@ -30,6 +33,15 @@ const MovieCard: React.FC<MovieCardProps> = ({ image_path, title, vote_average }
       </MovieCardInformationWrapper>
     </MovieCardWrapper>
   )
+
+  if (hasLink)
+    return (
+      <Link href={link}>
+        <MovieCardBody />
+      </Link>
+    )
+
+  return <MovieCardBody />
 }
 
 export default MovieCard
