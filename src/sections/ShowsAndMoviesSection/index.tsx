@@ -7,18 +7,14 @@ import Input from "@/components/Input"
 import tmdb_api_service from "@/services/tmdb_api_service"
 import MovieCard from "@/components/MovieCard"
 import { ListItemsWrapper, ShowsAndMoviesSectionWrapper } from "./styles"
-
-const SUBSECTIONS_IDS = {
-  TV_SHOWS: "tv_shows_1",
-  MOVIES: "movies_2",
-}
+import { ITEMS_TYPES } from "@/utils/constans"
 
 const ShowsAndMoviesSection: React.FC = () => {
-  const [subsectionSelected, setsubsectionSelected] = useState<String>(SUBSECTIONS_IDS.TV_SHOWS)
+  const [subsectionSelected, setsubsectionSelected] = useState<String>(ITEMS_TYPES.TV_SHOW)
   const [items, setItems] = useState<Array<any>>([])
 
   const placeHolderInput: string =
-    subsectionSelected === SUBSECTIONS_IDS.TV_SHOWS ? "Search for TV shows" : "Search for movies"
+    subsectionSelected === ITEMS_TYPES.TV_SHOW ? "Search for TV shows" : "Search for movies"
   const hasItemsToRender = items && !!items.length
 
   useEffect(() => {
@@ -26,7 +22,7 @@ const ShowsAndMoviesSection: React.FC = () => {
   }, [subsectionSelected])
 
   const fetchItems = async () => {
-    const isTVShows: boolean = subsectionSelected === SUBSECTIONS_IDS.TV_SHOWS
+    const isTVShows: boolean = subsectionSelected === ITEMS_TYPES.TV_SHOW
     let data = null
 
     if (isTVShows) data = await tmdb_api_service.getPopularTVShows("en-US", 1)
@@ -36,8 +32,8 @@ const ShowsAndMoviesSection: React.FC = () => {
   }
 
   const sections: Array<SubsectionsType> = [
-    { id: SUBSECTIONS_IDS.TV_SHOWS, label: "TV Shows", onClick: () => setsubsectionSelected(SUBSECTIONS_IDS.TV_SHOWS) },
-    { id: SUBSECTIONS_IDS.MOVIES, label: "Movies", onClick: () => setsubsectionSelected(SUBSECTIONS_IDS.MOVIES) },
+    { id: ITEMS_TYPES.TV_SHOW, label: "TV Shows", onClick: () => setsubsectionSelected(ITEMS_TYPES.TV_SHOW) },
+    { id: ITEMS_TYPES.MOVIE, label: "Movies", onClick: () => setsubsectionSelected(ITEMS_TYPES.MOVIE) },
   ]
 
   return (
@@ -54,7 +50,7 @@ const ShowsAndMoviesSection: React.FC = () => {
                 image_path={backdrop_path}
                 title={name ?? title}
                 vote_average={vote_average}
-                link={`/detail/${id}`}
+                link={`/detail/${subsectionSelected}-${id}`}
               />
             ))}
           </ListItemsWrapper>

@@ -1,7 +1,3 @@
-import ShowsAndMoviesSection from "@/sections/ShowsAndMoviesSection"
+import HomeView from "@/views/HomeView"
 
-const Home: React.FC = () => {
-  return <ShowsAndMoviesSection />
-}
-
-export default Home
+export default HomeView
