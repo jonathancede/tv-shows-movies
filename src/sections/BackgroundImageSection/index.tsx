@@ -15,20 +15,20 @@ interface BackgroundImageSectionProps {
 }
 
 const BackgroundImageSection: React.FC<BackgroundImageSectionProps> = ({ data }) => {
-  const { backdrop_path, title, name, first_air_date, type } = data
+  const { backdrop_path, title, name, first_air_date, release_date, type } = data
   const { full_path } = useTMDBImages(backdrop_path)
 
-  const firstAirDateYear = new Date(first_air_date).getFullYear()
+  const firstAirDateYear = new Date(first_air_date ?? release_date).getFullYear()
 
   return (
     <Section>
       <BackgroundImageWrapper>
-        <Image fill src={full_path} alt={name ?? title} sizes="100%" />
+        <Image fill src={full_path} alt={name ?? title} sizes="100%" priority />
         <BackgroundImageInformation>
           <BackgroundImageTitle>{name ?? title ?? ""}</BackgroundImageTitle>
           <BackgroundImageSubtitle>
-            <span>{firstAirDateYear}</span>
-            <span>{type}</span>
+            {!!firstAirDateYear && <span>{firstAirDateYear}</span>}
+            {!!type && <span>{type}</span>}
           </BackgroundImageSubtitle>
         </BackgroundImageInformation>
       </BackgroundImageWrapper>
