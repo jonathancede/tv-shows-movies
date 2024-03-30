@@ -2,7 +2,7 @@
 
 import styled from "styled-components"
 
-export const BackgroundImageWrapper = styled.div`
+export const BackgroundImageWrapper = styled.div<{ $noImage: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,14 +15,18 @@ export const BackgroundImageWrapper = styled.div`
     object-fit: cover;
     mask-image: linear-gradient(black, transparent);
   }
+
+  ${({ $noImage }) => $noImage && `height: auto;`}
 `
 
-export const BackgroundImageInformation = styled.div`
+export const BackgroundImageInformation = styled.div<{ $noImage: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 32px;
+
+  ${({ $noImage }) => $noImage && `padding: 32px 0px 0px 0px;`}
 `
 
 export const BackgroundImageTitle = styled.div`

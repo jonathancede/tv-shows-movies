@@ -19,12 +19,13 @@ const BackgroundImageSection: React.FC<BackgroundImageSectionProps> = ({ data })
   const { full_path } = useTMDBImages(backdrop_path)
 
   const firstAirDateYear = new Date(first_air_date ?? release_date).getFullYear()
+  const imageRendering = !!backdrop_path
 
   return (
     <Section>
-      <BackgroundImageWrapper>
-        <Image fill src={full_path} alt={name ?? title} sizes="100%" priority />
-        <BackgroundImageInformation>
+      <BackgroundImageWrapper $noImage={!imageRendering}>
+        {imageRendering && <Image fill src={full_path} alt={name ?? title} sizes="100%" priority />}
+        <BackgroundImageInformation $noImage={!imageRendering}>
           <BackgroundImageTitle>{name ?? title ?? ""}</BackgroundImageTitle>
           <BackgroundImageSubtitle>
             {!!firstAirDateYear && <span>{firstAirDateYear}</span>}
