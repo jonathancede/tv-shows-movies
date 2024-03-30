@@ -2,9 +2,11 @@
 
 import styled from "styled-components"
 
-const BaseSection = styled.section`
+const BaseSection = styled.section<{ $styleCleaned: boolean }>`
   margin: auto;
   padding: 24px;
+
+  ${({ $styleCleaned }) => $styleCleaned && `padding: 0px; margin: 0px;`}
 `
 
 export const NormalSection = styled(BaseSection)`

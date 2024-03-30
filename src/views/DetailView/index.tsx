@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import useFetchItem from "@/hooks/useFetchItem"
 import BackgroundImageSection from "@/sections/BackgroundImageSection"
 import Section from "@/components/Sections"
+import DetailAndMoreLikeSection from "@/sections/DetailAndMoreLikeSection"
 
 interface DetailPageProps {
   params: {
@@ -28,6 +29,7 @@ const DetailView: React.FC<DetailPageProps> = ({ params }) => {
   return (
     <>
       <BackgroundImageSection data={data} />
+      <DetailAndMoreLikeSection data={data} />
     </>
   )
 }
