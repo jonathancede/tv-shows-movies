@@ -13,12 +13,20 @@ class TMDBApiService extends HttpService {
     return await this.get(`movie/${id}`)
   }
 
+  async getSimilarMovies(id: string | number): Promise<any> {
+    return await this.get(`movie/${id}/similar`)
+  }
+
   async getPopularTVShows(language: string, page: string | number): Promise<any> {
     return await this.get(`tv/popular?language=${language}&page=${page}`)
   }
 
   async getTVShowById(id: string | number): Promise<any> {
     return await this.get(`tv/${id}`)
+  }
+
+  async getSimilarTVShows(id: string | number): Promise<any> {
+    return await this.get(`tv/${id}/similar`)
   }
 }
 

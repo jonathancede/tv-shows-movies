@@ -29,7 +29,7 @@ const DetailView: React.FC<DetailPageProps> = ({ params }) => {
   return (
     <>
       <BackgroundImageSection data={data} />
-      <DetailAndMoreLikeSection data={data} />
+      <DetailAndMoreLikeSection data={data} type={type} />
     </>
   )
 }
