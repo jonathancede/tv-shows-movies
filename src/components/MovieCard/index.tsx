@@ -25,7 +25,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ image_path, title, vote_average, 
   const MovieCardBody = () => (
     <MovieCardWrapper $hasLink={hasLink}>
       <MovieCardImageWrapper>
-        <Image fill src={full_path} alt={title} sizes="100%" />
+        <Image fill src={full_path} alt={title} sizes="100%" priority />
       </MovieCardImageWrapper>
       <MovieCardInformationWrapper>
         <MovieCardTitle>{title}</MovieCardTitle>
