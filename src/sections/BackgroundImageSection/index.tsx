@@ -15,7 +15,7 @@ interface BackgroundImageSectionProps {
 }
 
 const BackgroundImageSection: React.FC<BackgroundImageSectionProps> = ({ data }) => {
-  const { backdrop_path, title, name, first_air_date, release_date, type } = data
+  const { backdrop_path, title, name, first_air_date, release_date, type, runtime } = data
   const { full_path } = useTMDBImages(backdrop_path)
 
   const firstAirDateYear = new Date(first_air_date ?? release_date).getFullYear()
@@ -29,6 +29,7 @@ const BackgroundImageSection: React.FC<BackgroundImageSectionProps> = ({ data })
           <BackgroundImageSubtitle>
             {!!firstAirDateYear && <span>{firstAirDateYear}</span>}
             {!!type && <span>{type}</span>}
+            {!!runtime && <span>{runtime} mins</span>}
           </BackgroundImageSubtitle>
         </BackgroundImageInformation>
       </BackgroundImageWrapper>
